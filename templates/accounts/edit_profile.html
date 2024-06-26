@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% block body %}
+<div class="col-lg-7 mb-5 mx-auto">
+    <div class="contact-form bg-light p-30">
+        <div class="registration form">
+            <h1 class="mb-4">Edit Profile</h1>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form user_form %}
+                {% bootstrap_form profile_form %}
+                <button type='submit' class="btn btn-primary">Submit</button>
+            </form>
+            <div class="signup">
+            <span class="signup">Already have an account?
+            <a href="{% url "accounts:login" %}">Login</a>
+            </span>
+            </div>
+        </div>
+    </div>
+</div>        
+
+
+{% endblock body %}
